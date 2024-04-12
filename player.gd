@@ -16,8 +16,6 @@ signal fired_bullet(bullet: Node2D)
 
 		health_bar.value = health
 
-@onready var on_floor1 = $OnFloor1
-@onready var on_floor2 = $OnFloor2
 @onready var arrow = $Arrow
 @onready var arrow_image = $Arrow/ArrowImage
 @onready var health_bar = $ProgressBar

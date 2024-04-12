@@ -1,5 +1,6 @@
 extends Area2D
 @onready var timer = $Timer
+@onready var animation = $AnimatedSprite2D
 @export var damage = 5
 var hit =false
 

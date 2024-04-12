@@ -1,41 +1,41 @@
 [gd_scene load_steps=13 format=3 uid="uid://c2414h0o5l6qb"]
 
 [ext_resource type="Script" path="res://Explosion.gd" id="1_iyk1p"]
-[ext_resource type="Texture2D" uid="uid://cnd5awngcxnni" path="res://explosion-6.png" id="2_rgbqs"]
+[ext_resource type="Texture2D" uid="uid://cnd5awngcxnni" path="res://assets/explosion-6.png" id="2_qaton"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_umlgy"]
-radius = 50.0
+radius = 17.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp0bc"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st7s6"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05o06"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28bnl"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvqgy"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47mwc"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr474"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao7kg"]
-atlas = ExtResource("2_rgbqs")
+atlas = ExtResource("2_qaton")
 region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_js7ki"]
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ao7kg")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 12.0
 }]
@@ -79,6 +79,7 @@ shape = SubResource("CircleShape2D_umlgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_js7ki")
+autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75
