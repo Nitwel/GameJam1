@@ -49,12 +49,9 @@ func _process(delta):
 
 		arrow.rotation = clamp(arrow.rotation + aim_direction * 0.01, deg_to_rad( - 60), deg_to_rad(60))
 
-func is_on_floor():
-	return on_floor1.is_colliding() or on_floor2.is_colliding()
-
 func _integrate_forces(state):
 
-	if is_on_floor() and active:
+	if test_move(transform, Vector2(0, 1)) and active:
 		var direction = Vector2(Input.get_axis("ui_left", "ui_right"), 0).rotated(rotation)
 		state.linear_velocity += direction * speed
 
