@@ -19,12 +19,12 @@ size = Vector3(2000, 20, 1)
 script = ExtResource("1_68a7k")
 
 [node name="Player1" parent="." instance=ExtResource("2_dk4j1")]
-position = Vector2(597, 256)
+position = Vector2(161, 453)
 rotation = -0.024429
 linear_damp = 5.0
 
 [node name="Player2" parent="." instance=ExtResource("2_dk4j1")]
-position = Vector2(760, 280)
+position = Vector2(862, 340)
 rotation = -0.024429
 linear_damp = 5.0
 

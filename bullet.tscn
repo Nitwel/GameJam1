@@ -21,5 +21,7 @@ texture = ExtResource("1_7ykv6")
 shape = SubResource("CircleShape2D_5jbpc")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="KillTimer" type="Timer" parent="."]
+wait_time = 4.0
