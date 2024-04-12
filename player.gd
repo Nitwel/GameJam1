@@ -49,14 +49,14 @@ func _process(delta):
 		charging = true
 
 	if active:
-		var aim_direction = Input.get_axis("ui_up", "ui_down")
+		var aim_direction = Input.get_axis("tilt_left", "tilt_right")
 
 		arrow.rotation = clamp(arrow.rotation + aim_direction * 0.01, deg_to_rad( - 60), deg_to_rad(60))
 
 func _integrate_forces(state):
 
 	if test_move(transform, Vector2(0, 1)) and active:
-		var direction = Vector2(Input.get_axis("ui_left", "ui_right"), 0).rotated(rotation)
+		var direction = Vector2(Input.get_axis("move_left", "move_right"), 0).rotated(rotation)
 		state.linear_velocity += direction * speed
 
 	state.linear_velocity.clamp( - terminal_velocity, terminal_velocity)

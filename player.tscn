@@ -37,16 +37,6 @@ rotation = 1.5708
 mesh = SubResource("CapsuleMesh_x14kh")
 texture = ExtResource("2_y6oca")
 
-[node name="OnFloor1" type="RayCast2D" parent="."]
-position = Vector2(-18, 0)
-target_position = Vector2(0, 12)
-collision_mask = 2
-
-[node name="OnFloor2" type="RayCast2D" parent="."]
-position = Vector2(18, 0)
-target_position = Vector2(0, 12)
-collision_mask = 2
-
 [node name="Arrow" type="Node2D" parent="."]
 
 [node name="ArrowImage" type="Sprite2D" parent="Arrow"]
