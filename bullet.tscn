@@ -11,6 +11,10 @@ height = 12.0
 radius = 6.0
 
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 3
+max_contacts_reported = 4
+contact_monitor = true
 script = ExtResource("1_2cfhc")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -22,6 +26,9 @@ shape = SubResource("CircleShape2D_5jbpc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+autostart = true
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
