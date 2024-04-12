@@ -5,11 +5,10 @@ extends CanvasLayer
 @onready var minus_button = $ColorRect/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/minus
 @onready var close_button = $ColorRect/CenterContainer/VBoxContainer/close
 @onready var label = $ColorRect/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/PanelContainer/Label
-@onready var main = $/root/Main
+@onready var players = $/root/Main/Players
 
 const PlayerScene = preload ("./player.tscn")
 var active_player = 0
-var players = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,15 +36,14 @@ func start():
 	visible = false
 	for i in range(int(label.text)):
 		var player = PlayerScene.instantiate()
-		players.append(player)
-		main.add_child(player)
+		players.add_child(player)
 		player.global_position = Vector2(int(randf()* 1000),400)
 
 		player.fired_bullet.connect(func(bullet):
 			player.active=false
 
 			bullet.tree_exited.connect(func():
-				active_player=(active_player + 1) % int(label.text)
+				active_player=(active_player + 1) % players.get_child_count()
 				update_active_player()
 			)
 		)
@@ -54,5 +52,5 @@ func start():
 
 
 func update_active_player():
-	for i in range(players.size()):
-		players[i].active = (i == active_player)
+	for player in players.get_children():
+		player.active = (player.get_index()== active_player)

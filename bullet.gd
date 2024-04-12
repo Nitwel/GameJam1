@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var timer = $Timer
 @onready var kill_timer = $KillTimer
 @onready var collision = $CollisionShape2D
+@onready var main = $/root/Main
 
 const ExplosionScene = preload ("./explosion.tscn")
 
@@ -21,7 +22,7 @@ func _physics_process(delta):
 
 	if collisions.size() > 0:
 		var explosion = ExplosionScene.instantiate()
-		get_parent().add_child(explosion)
+		main.add_child(explosion)
 		explosion.global_position = global_position
 		queue_free()
 

@@ -45,3 +45,5 @@ shape = SubResource("RectangleShape2D_1bbbv")
 mesh = SubResource("BoxMesh_ihcnq")
 
 [node name="menu" parent="." instance=ExtResource("3_jecgp")]
+
+[node name="Players" type="Node2D" parent="."]

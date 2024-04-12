@@ -20,7 +20,11 @@ signal fired_bullet(bullet: Node2D)
 @onready var arrow_image = $Arrow/ArrowImage
 @onready var health_bar = $ProgressBar
 @onready var shoot_timer = $ShootTimer
+@onready var players = $/root/Main/Players
+@onready var main = $/root/Main
+@onready var menu = $/root/Main/menu
 @export var active = false
+
 
 var charging = false
 
@@ -35,7 +39,7 @@ func _process(delta):
 
 	if Input.is_action_just_released("ui_fire") and active and charging:
 		var bullet = BulletScene.instantiate()
-		get_parent().add_child(bullet)
+		main.add_child(bullet)
 		bullet.global_position = global_position
 		bullet.apply_central_impulse(Vector2.UP.rotated(arrow.global_rotation) * 1000 * max(0.4, power))
 		shoot_timer.stop()
@@ -64,4 +68,11 @@ func damage(amount):
 
 	if health <= 0:
 		print("Player died")
-		queue_free()
+		print(players.get_child_count())
+		if players.get_child_count() < 3:
+			for player in players.get_children():
+				print(player)
+				player.queue_free()
+			menu.visible = true
+		else:
+			queue_free()
