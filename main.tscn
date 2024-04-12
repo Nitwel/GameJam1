@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkpsc3dcnb0kw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_68a7k"]
-[ext_resource type="PackedScene" uid="uid://bl13e4c8fmqay" path="res://player.tscn" id="2_dk4j1"]
+[ext_resource type="PackedScene" uid="uid://oknsfhs41t2x" path="res://menu.tscn" id="3_jecgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73crf"]
 size = Vector2(500, 20)
@@ -17,16 +17,6 @@ size = Vector3(2000, 20, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_68a7k")
-
-[node name="Player1" parent="." instance=ExtResource("2_dk4j1")]
-position = Vector2(161, 453)
-rotation = -0.024429
-linear_damp = 5.0
-
-[node name="Player2" parent="." instance=ExtResource("2_dk4j1")]
-position = Vector2(862, 340)
-rotation = -0.024429
-linear_damp = 5.0
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -53,3 +43,5 @@ shape = SubResource("RectangleShape2D_1bbbv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Map/StaticBody2D2"]
 mesh = SubResource("BoxMesh_ihcnq")
+
+[node name="menu" parent="." instance=ExtResource("3_jecgp")]
