@@ -24,6 +24,8 @@ signal fired_bullet(bullet: Node2D)
 @onready var shoot_timer = $ShootTimer
 @export var active = false
 
+var charging = false
+
 func _ready():
 	health = health
 
@@ -33,16 +35,18 @@ func _process(delta):
 
 	arrow_image.scale.y = lerp(0.01, 0.1, power)
 
-	if Input.is_action_just_released("ui_fire") and active:
+	if Input.is_action_just_released("ui_fire") and active and charging:
 		var bullet = BulletScene.instantiate()
 		get_parent().add_child(bullet)
 		bullet.global_position = global_position
 		bullet.apply_central_impulse(Vector2.UP.rotated(arrow.global_rotation) * 1000 * max(0.4, power))
 		shoot_timer.stop()
 		fired_bullet.emit(bullet)
+		charging = false
 
 	if Input.is_action_just_pressed("ui_fire") and active:
 		shoot_timer.start()
+		charging = true
 
 	if active:
 		var aim_direction = Input.get_axis("ui_up", "ui_down")
